@@ -1,0 +1,50 @@
+{% load static %}
+<link rel="stylesheet" href='{% static "css/style-home.css" %}'>
+<div class="col-md-4 col-sm-12" id="containerCards">
+    
+    <div class="col-md-4 col-sm-12" id="cards">
+        <figure>
+            <img src="{% static 'img/manchester-city.jpg' %}">
+        </figure>
+        <div class="contenido">
+            <h3>Deportes</h3>
+            <p>El Manchester City logro una temporada histórica tras coronarse campeón por primera vez la UEFA Champions League</p>
+            <a href="{% url 'noticia' 6 %}">Leer Más</a>
+        </div>
+    </div>
+    
+    <div class="col-md-4 col-sm-12" id="cards">
+        <figure>
+            <img src="{% static 'img/doctor-ugarte.jpg' %}">
+        </figure>
+        <div class="contenido">
+            <h3>Salud</h3>
+            <p>Ante el alza de virus respiratorios en el país, el doctor y jefe de la Unidad de Pacientes Críticos de la Clínica Indisa, Sebastián Ugarte, analizó la alta ocupación de camas críticas pediátricas y la baja vacunación contra la Influenza:</p>
+            <a href="{% url 'noticia' 2 %}">Leer Más</a>
+        </div>
+    </div>
+
+    
+    <div class="col-md-4 col-sm-12" id="cards">
+        <figure>
+            <img src="{% static 'img/donald-trump.jpg' %}">
+        </figure>
+        <div class="contenido">
+            <h3>Internacional</h3>
+            <p>Dentro del juzgado de Miami, Trump y su equipo legal fueron comedidos. Uno de los abogados de Trump le dijo al juez que el expresidente se declaraba inocente de todos los cargos.</p>
+            <a href="{% url 'noticia' 3 %}">Leer Más</a>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-12" id="cards">
+        <figure>
+            <img src="{% static 'img/spider-man.jpg' %}">
+        </figure>
+        <div class="contenido">
+            <h3>VideoJuegos</h3>
+            <p>Marvel's Spider-Man 2 fue presentado durante el último PlayStation Showcase y en el tráiler mostrado ya se han dejado claras todas las intenciones. La desarrolladora va a poner toda la carne en el asador en esta nueva aventura en Nueva York.</p>
+            <a href="{% url 'noticia' 4 %}">Leer Más</a>
+        </div>
+    </div>
+
+</div>  

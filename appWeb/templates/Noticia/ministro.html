@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href='{% static "css/style-noticias.css" %}'>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-4 col-sm-12" id="caja">
+            <h3>Ex ministro de Salud, Álvaro Erazo: "La salida del subsecretario Araos ayuda a descomprimir la situación que se hacía insostenible"</h3>
+            <img src="{% static 'img/Exsubsecretario-Araos.jpg' %}" class="d-block w-100" alt="">
+            <br>
+            <p>Este martes, se concretó la salida del cargo del exsubsecretario de Redes Asistenciales, Fernando Araos, quien presentó su renuncia tras la polémica que se generó por la muerte de una bebé de dos meses en medio de la crisis por virus respiratorios que vive el país.</p>
+            <br>
+            <p>La salida de Araos fue comentada por la ministra de Salud, Ximena Aguilera, quien aseguró que la decisión fue tomada por el mismo Araos y que cree que fue provocada por la situación de "tensión" que estaban viviendo en el Ministerio de Salud.</p>
+        </div>
+            <center><a href="../html/principal.html"></a></center>
+    </div>
+    <footer>
+        {% include "home/card.html" %}
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="../js/java.js"></script>
+</body>
+</html>

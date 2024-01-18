@@ -1,0 +1,72 @@
+{% load static %}
+<link rel="stylesheet" href='{% static "css/nav.css" %}'>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"></a> <img src="{% static 'img/logo.png' %}" width="50px" alt="">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" href></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Inicio</a>
+                </li>
+                
+                {% if user.is_staff %}
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="{% url 'tabla' %}">Solicutudes Contacto</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="{% url 'lista_noti'%}"  role="button">
+                        Aprobar Noticias 
+                    </a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="{% url 'contacto' %}">Contacto</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="{% url 'lista_noti'%}"  role="button">
+                        Buscar Noticia
+                    </a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item ">
+                    <a class="nav-link " href="{% url 'Creacion'%}"  role="button">
+                        Crear Noticia
+                    </a>
+                </li>
+                {%endif%}
+                <li class="nav-item ">
+                    <a class="nav-link " href="{% url 'lista_noti'%}"  role="button">
+                        Noticias Rechazadas 
+                    </a>
+                </li>
+                {% endif %}
+                
+            </ul>
+            
+            {% if user.is_authenticated %}
+            <div class="e">
+                    <h6>Haz subido:  Noticia/s</h6>
+            </div>
+            <div class="e">
+                <a class="nav-link active a btn btn-outline-primary" aria-current="page" href="{% url 'home' %}"> Bienvenido {{user}}</a>
+            </div>
+            <div class="e">
+                <a class="nav-link active a btn btn-outline-danger" aria-current="page" href="{% url 'logout' %}"> Logout</a>
+            </div>
+            {% else %}
+            <div class="e">
+                <a class="nav-link a btn btn-outline-secondary" target="_blank" href="{% url 'login' %}">Login</a>
+            </div>
+                <div class="e">
+                <a class="nav-link a btn btn-outline-secondary" target="_blank" href="{% url 'registro' %}">Registro</a>
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+</nav>

@@ -1,0 +1,165 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.84.0">
+  <title>Album example · Bootstrap v5.0</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
+
+
+
+  <!-- Bootstrap core CSS -->
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+    .card-body{
+    height: 150px;
+}
+    .card img{
+      height: 300px;
+    }
+  </style>
+
+
+</head>
+<body>
+  <header> {% include "Home/navbar.html" %}</header>
+
+
+  {% if user.is_staff %}
+  <main>
+
+    <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light">Noticias Por aprobar</h1>
+          <form class="d-flex" action="{% url 'buscar' %}" method="get">
+            <input name="busca" class="form-control me-2" type="search" placeholder="Buscar noticias" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
+        </div>
+        
+      </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <!-- 
+          {% if query %}
+          <h2>Resultados para "{{ query }}"</h2>
+          <ul>
+              {% for book in results %}
+                  <li>{{ book.titulo}} - {{ book.author }}</li>
+              {% empty %}
+                  <li>No se encontraron resultados</li>
+              {% endfor %}
+          </ul>
+      {% endif %} -->
+          {% if noticia or query %}
+          {% for i in noticia %}
+          <div class="col">
+            <div class="card shadow-sm">
+              <img src="{% static i.img %}" alt="">
+
+              <div class="card-body">
+                <p class="card-text">{{i.titulo}} </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="{% url 'noticia' i.id_Noticia %}"><button type="button" class="btn btn-sm btn-outline-secondary">Ver Noticia</button></a>
+                    
+                  </div>
+                  <small class="text-muted">{{i.autor}}-{% if i.aprobada %} Aprobada {% else %} Por Aprobar {% endif %}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% empty %}
+          <center><h2>No hay noticias que coincidan con la busqueda </h2></center>
+          {% endfor %}
+          {% else %}
+            <center><h2>No hay noticias Cargadas </h2></center>
+          {% endif %}
+        </div>
+      </div>
+  </main>
+  <!-- Vista usuario Normal -->
+  {% else %}  
+  <main>
+    <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light">Todas la Noticias</h1>
+          <form class="d-flex" action="{% url 'buscar' %}" method="get">
+            <input name="busca" class="form-control me-2" type="search" placeholder="Buscar noticias" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
+        </div>
+        
+      </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          {% if noticia or query %}
+          {% for i in noticia %}
+          <div class="col">
+            <div class="card shadow-sm">
+              <img src="{% static i.img %}" alt="">
+
+              <div class="card-body">
+                <p class="card-text">{{i.titulo}} </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="{% url 'noticia' i.id_Noticia %}"><button type="button" class="btn btn-sm btn-outline-secondary">Ver noticia</button></a>
+                    
+                  </div>
+                  <small class="text-muted">{{i.autor}}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% empty %}
+          <center><h2 class="text-center">No hay noticias que coincidan con la busqueda </h2></center>
+          {% endfor %}
+          {% else %}
+            <center><h2 class="text-center"> No hay noticias Cargadas </h2></center>
+          {% endif %} 
+        </div>
+        
+      </div>
+    </div>
+  </main>
+  {% endif %}
+  <footer class="text-muted py-5">
+    {% include "Home/card.html" %}
+  </footer>
+
+
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

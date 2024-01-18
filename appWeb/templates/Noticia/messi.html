@@ -1,0 +1,35 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href='{% static "css/style-noticias.css" %}'>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-4 col-sm-12" id="caja">
+            <h3>Messi confirma que jugará la próxima temporada en el Inter Miami</h3>
+            <img src="{% static 'img/messi.jpg'%}" class="d-block w-100" alt="">
+            <br>
+            <p>El astro argentino del fútbol Lionel Messi confirmó que la próxima temporada jugará en el Inter Miami, en Estados Unidos.
+
+                "Tomé la decisión que voy a ir a Miami. Todavía no lo tengo cerrado al 100% o falta alguna cosa, pero bueno, decidimos continuar el camino allí", aseguró Messi en una entrevista con el diario catalán Sport.
+            
+                El campeón del mundo finaliza este verano su paso por el París St. Germain, y aunque existía la posiblidad de que volviera al FC Barcelona o que firmara un jugoso contrato con en la liga de Arabia Saudita, optó por mudarse al fútbol de Estados Unidos.
+                
+                "La verdad es que tuve ofertas de otro equipo europeo, pero ni siquiera la evalué porque en Europa mi idea solo era irme al Barcelona", explicó Messi en la entrevista a Sport.</p>
+        </div>
+            <center><a href="../html/principal.html"></a></center>
+    </div>
+    <footer>
+        {% include "home/card.html" %}
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="../js/java.js"></script>
+</body>
+</html>

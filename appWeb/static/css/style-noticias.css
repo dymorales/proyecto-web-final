@@ -1,0 +1,27 @@
+body{
+    background-color: rgb(103, 168, 194);
+    background-position: hidden;
+}
+
+#caja{
+    height: auto;
+    width: 650px;
+    border: solid;
+    background-color:rgb(255, 255, 255);
+    border-color: black;
+    margin-left: 33%;
+    margin-top: 2%;
+}
+
+p{
+    font-size: 1.1em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.img{
+    height: 360px;
+    width: 350px;
+    border: solid;
+    border-color: black;
+}
+
